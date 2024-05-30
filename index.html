@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitapcim</title>
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/toastr/toastr.min.css" />
+  <link rel="stylesheet" href="./assets/toastr/toastr.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="./assets/jquery/jquery.min.js"></script>
+  <script src="./assets/toastr/toastr.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <h2 class="title fw-bold">KİTAPÇIM</h2>
+    <img src="./assets/images/Site-banner.jpg" alt="Süpriz :D" class="logo">
+    <ul class="menu">
+      <li class="active">Kitaplar</li>
+      <li>Sesli Kitaplar</li>
+      <li>Hediyeler</li>
+      <li class="active"><a href="hakkimda.html" class="active">Hakkımda</a></li>
+    </ul>
+
+    <ul class="menu_icons">
+      <li><i class="bi bi-person-circle"></i></li>
+      <li><i class="bi bi-search"></i></li>
+      <li class="basket_icon" onclick="toggleModal()">
+        <i class="bi bi-cart4">
+          <span class="basket_count"></span>
+        </i>
+      </li>
+    </ul>
+
+  </nav>
+
+  <section class="slider">
+    <div id="carouselBookSlider" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/images/slide1.png" class="d-block w-100" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/slide2.png" class="d-block w-100" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/slide3.png" class="d-block w-100" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/slide4.png" class="d-block w-100" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/images/slide5.png" class="d-block w-100" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselBookSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselBookSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </section>
+
+  <section class="store my-5">
+    <div class="filter_background"></div>
+
+    <ul class="filter">
+      <li class="active">TÜMÜ</li>
+      <li>Roman</li>
+      <li>Kişisel Gelişim</li>
+      <li>Fantastik</li>
+    </ul>
+    <div class="row book_list">
+    </div>
+  </section>
+
+  <div class="basket_modal">
+    <div class="basket_items">
+      <i class="bi bi-x" onclick="toggleModal()"></i>
+      <h2 class="basket_title">Eşyalarınız</h2>
+      <ul class="basket_list">
+        <li class="basket_item">Sepetinizde Herhangi bir ürün bulunmuyor lütfen satın almyı deneyin.</li>
+      </ul>
+      <div class="basket_total">
+        <span class="fw-bold mb-3 fs-4 total_price"></span>
+        <button class="btn_purple">ÖDEME YAP</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>İletişim Bilgileri</h3>
+        <p>Adres: Mevlana, Mevlana Melikşah Caddesi, Yasemin Sk. No:50, 38280 Talas/Kayseri</p>
+        <p>Telefon: 03524323250 / 03524323350</p>
+        <p>E-posta: ogrenci@kayseri.edu.tr</p>
+      </div>
+      <div class="col-md-6">
+        <h3>Sosyal Medya</h3>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+          <li class="list-inline-item"><a href="https://twitter.com/Enes8713"><i class="bi bi-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/enes8.7/"><i class="bi bi-instagram"></i></a>
+          </li>
+          <li class="list-inline-item"><a href="#"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center">Tüm hakları saklıdır &copy; 2024</p>
+  </div>
+</footer>
+
+</html>

@@ -1,0 +1,122 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitapcim</title>
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/toastr/toastr.min.css" />
+  <link rel="stylesheet" href="./assets/toastr/toastr.css" />
+  <link rel="stylesheet" href="style.css" />>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <h2 class="title fw-bold">KİTAPÇIM</h2>
+    <img src="./assets/images/Site-banner.jpg" alt="Bookshop" class="logo">
+    <ul class="menu">
+      <li class="active"><a href="index.html" class="active">Kitaplar</a></li>
+      <li>Sesli Kitaplar</li>
+      <li>Hediyeler</li>
+      <li class="active" onclick="openHakkimdaPage()">Hakkımda</li>
+    </ul>
+
+    <ul class="menu_icons">
+      <li><i class="bi bi-person-circle"></i></li>
+      <li><i class="bi bi-search"></i></li>
+      <li class="basket_icon" onclick="toggleModal()">
+        <i class="bi bi-cart4">
+          <span class="basket_count"></span>
+        </i>
+      </li>
+    </ul>
+
+  </nav>
+
+
+  <main>
+    <div class="container">
+      <section class="about-me">
+        <h2 class="hakkimda_yazilari">Hakkımda</h2>
+        <div class="about-me-content">
+          <p>Enes Efe Avşaroğlu, Kayseri Üniversitesi Teknik Bilimler Meslek Yüksekokulu Bilgisayar Programcılığı
+            bölümünde 2. sınıf öğrencisiyim. Nevşehir Avanos Topaklı İlkokulu ve Ortaokulu ile Kapadokya Çok Programlı
+            Anadolu Meslek Lisesin'den mezun oldum.</p>
+          <p>Staj deneyimi olarak Nevşehir Kozaklı ilçesinde Hibrit Telekom'da lise stajı yaptım. Bu yaz döneminde ise
+            Kayseri'de bir teknoloji şirketinde staj yapmayı planlamaktayım.</p>
+          <p>Web programcılığı ve SQL dillerinde yetenekliyim. Bilgisayar oyunlarına ilgi duymaktayım ve rekabetçi
+            oyunlar oynamaktan keyif almaktayım.</p>
+          <p>Gelecekte iyi bir yazılımcı olma vizyonu içinde yaşıyorum.</p>
+          <address>
+            Adres: Nevşehir/Avanos/Topaklı Köyü<br>
+            E-posta: enesavsaroglu87@gmail.com<br>
+            Telefon: 0544******<br>
+          </address>
+      </section>
+      <section class="map">
+        <h2 class="universite_yazisi">Üniversite Konumu</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6226.329877914342!2d35.554041!3d38.714022!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b12c703ff9691%3A0x3ef10fa28c5ffea!2sKayseri%20%C3%9Cniversitesi%2015%20Temmuz%20Yerle%C5%9Fkesi!5e0!3m2!1str!2str!4v1712945100403!5m2!1str!2str"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </section>
+  </main>
+
+  <section class="contact-section">
+    <h2 class="hakkimda_yazilari">İletişim Formu</h2>
+    <form id="contactForm" action="https://formspree.io/f/mqkrwbkb" method="post">
+      <div class="form-group">
+        <label for="name">İsim Soyisim:</label>
+        <input type="text" id="name" name="İsminiz" placeholder="İsminizi giriniz" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Konu:</label>
+        <input type="text" id="subject" name="Konu" placeholder="Konuyu belirtiniz" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Mesajınız:</label>
+        <textarea id="message" name="Mesajınız" placeholder="Mesajınızı giriniz" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="name">E-Mail:</label>
+        <input type="email" id="name" name="E-Posta" placeholder="E-Posta adresinizi giriniz" required>
+      </div>
+      <button type="submit">Gönder</button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>İletişim Bilgileri</h3>
+          <p>Adres: Mevlana, Mevlana Melikşah Caddesi, Yasemin Sk. No:50, 38280 Talas/Kayseri</p>
+          <p>Telefon: 03524323250 / 03524323350</p>
+          <p>E-posta: ogrenci@kayseri.edu.tr</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Sosyal Medya</h3>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://twitter.com/Enes8713"><i class="bi bi-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/enes8.7/"><i
+                  class="bi bi-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="bi bi-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center">Tüm hakları saklıdır &copy; 2024</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/app.js"></script>
+  <script src="~/assets/jquery/jquery.min.js"></script>
+  <script src="~/assets/toastr/toastr.min.js"></script>
+  <script src="~/products.json"></script>
+</body>
+
+</html>

@@ -1,0 +1,565 @@
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap");
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+      * {
+        font-family: "Montserrat", sans-serif;
+        padding: 0;
+        margin: 0;
+      }
+
+      :root {
+        --black: #1c2a39;
+        --gray: #5c6a79;
+        --purple: #4c3db2;
+        --transition: all 250ms ease-in-out;
+        --blue: #007bff;
+        --orange: #FFA500;
+        --pink: #ff69b4;
+        --yellow: #ffff00;
+      }
+
+      .navbar {
+        height: 120px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: var(--orange);
+        border-radius: 0% 0% 25% 25%;
+      }
+
+      .menu,
+      .menu_icons {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+        color: var(--gray);
+        cursor: pointer;
+      }
+
+      .menu li:hover {
+        color: var(--blue);
+        cursor: pointer;
+      }
+
+      .title {
+        font-weight: bold;
+      }
+
+      .menu .active {
+        color: var(--black);
+        font-weight: bold;
+      }
+
+      .menu li,
+      .menu_icons li {
+        margin: 0 10px;
+      }
+
+      .menu_icons li {
+        color: var(--black);
+      }
+
+      .menu_icons li:hover {
+        transform: scale(1.2);
+      }
+
+      .basket_icon {
+        position: relative;
+      }
+
+      .basket_count {
+        position: absolute;
+        right: -0.7rem;
+        bottom: 0;
+        width: 20px;
+        height: 20px;
+        background-color: var(--black);
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .basket_count:empty {
+        display: none;
+      }
+
+      .slider {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 600px;
+      }
+
+      .slider img {
+        height: 600px;
+      }
+
+      .store {
+        width: 80%;
+        margin-left: 10%;
+        position: relative;
+      }
+
+      .book_card {
+        height: 400px;
+      }
+
+      .book_card img {
+        height: 400;
+      }
+
+      .fos {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .gray {
+        color: var(--gray);
+      }
+
+      .black {
+        color: var(--black);
+      }
+
+      .fw_bold {
+        font-weight: bold;
+      }
+
+      .book_star_rate .bi-star,
+      .bi-star-fill {
+        color: #eeedf5;
+        font-size: 1.2rem;
+        margin-right: 5px;
+      }
+
+      .book_star_rate .bi-star-fill.active {
+        color: gold;
+      }
+
+      .book_description {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .old_price {
+        text-decoration: line-through;
+        color: #bdbdbd;
+      }
+
+      .btn_purple {
+        cursor: pointer;
+        border: 2px solid var(--purple);
+        color: var(--purple);
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: transparent;
+        transition: var(--transition);
+        padding: 5px 0;
+      }
+
+      .btn_purple:hover {
+        background-color: #ffd700;
+        color: white;
+      }
+
+      .filter_background {
+        position: absolute;
+        left: -30px;
+        width: 200px;
+        height: 750px;
+        background-color: #efeef6;
+        z-index: 0;
+      }
+
+      .filter {
+        position: absolute;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        min-height: 650px;
+        justify-content: center;
+        z-index: 0;
+      }
+
+      .filter li {
+        color: var(--gray);
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        padding-top: 10px;
+        margin-left: -50px;
+      }
+
+      .filter li:hover {
+        color: var(--purple);
+      }
+
+      .filter li.active {
+        color: var(--purple);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .filter li.active::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--purple);
+        position: absolute;
+        left: -30px;
+        margin-top: 12px;
+      }
+
+      .basket_modal {
+        position: fixed;
+        opacity: 0;
+        left: 0;
+        top: 0;
+        background-color: #5c6a7950;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transition: var(--transition);
+      }
+
+      .basket_modal.active {
+        opacity: 1;
+        z-index: 999;
+      }
+
+      .basket_items {
+        position: relative;
+        width: 0;
+        background-color: white;
+        height: 100%;
+        float: right;
+        transition: var(--transition);
+      }
+
+      .basket_modal.active .basket_items {
+        width: 500px;
+      }
+
+      .basket_items .bi-x {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 3rem;
+        color: var(--black);
+        cursor: pointer;
+      }
+
+      .basket_title {
+        color: var(--black);
+        margin-top: 5rem;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .basket_list {
+        list-style-type: none;
+        padding: 0 10px;
+        margin-top: 3rem;
+        max-height: 650px;
+        overflow-y: auto;
+      }
+
+      .basket_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .basket_items_info {
+        width: 250px;
+      }
+
+      .basket_items_info .book_name {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .basket_items_info .book_price {
+        font-size: 16px;
+      }
+
+      .basket_items_info .book_remove {
+        cursor: pointer;
+        color: var(--gray);
+      }
+
+      .basket_item .book_count {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--black);
+      }
+
+      .book_count .increase .decrease {
+        cursor: pointer;
+        color: var(--purple);
+      }
+
+      .book_count .increase {
+        margin-left: 5px;
+      }
+
+      .book_count .decrease {
+        margin-right: 5px;
+      }
+
+      .basket_total {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        bottom: 5%;
+        align-items: center;
+        width: inherit;
+      }
+
+      .basket_total button {
+        width: 250px;
+      }
+
+      .total_price:empty+.btn_purple {
+        display: none;
+      }
+
+      body {
+        --sb-track-color: #FFFFFF;
+        --sb-thumb-color: #FFA500;
+        --sb-border-color: #FFD700;
+        --sb-size: 10px;
+      }
+
+      body::-webkit-scrollbar {
+        width: var(--sb-size);
+      }
+
+      body::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 10px;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 10px;
+        border: 1px solid var(--sb-border-color);
+      }
+
+      @supports not selector(::-webkit-scrollbar) {
+        body {
+          scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+        }
+      }
+
+      footer {
+        background-color: var(--black);
+        color: #ffffff;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      footer a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: var(--orange);
+      }
+
+      .footer-social-icons {
+        margin-top: 20px;
+      }
+
+      .footer-social-icons a {
+        color: #ffffff;
+        font-size: 20px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .footer-social-icons a:hover {
+        color: var(--orange);
+      }
+
+      .about-page {
+        display: none;
+        padding: 20px;
+      }
+
+      .about-page h2 {
+        font-weight: bold;
+      }
+
+      .about-page p {
+        margin-top: 10px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      nav ul {
+        list-style-type: none;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      .about-me {
+        margin-bottom: 40px;
+      }
+
+      .about-me-content {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .map {
+        margin-top: 40px;
+        margin-left: 10%;
+      }
+
+      .site-footer {
+        position: relative;
+        z-index: 1;
+        margin-top: 40px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .contact-section {
+        background-color: #f2f2f2;
+        padding: 50px 0;
+      }
+
+      .hakkimda_yazilari {
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+      .universite_yazisi {
+        margin-right: 10%;
+      }
+
+      .navbar img {
+        width: 100px;
+        height: auto;
+        margin-right: 10px;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .logo:hover {
+        animation: rotate 2s infinite linear;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        background-color: transparent;
+      }
